@@ -1,5 +1,6 @@
 const express = require('express')
 const morgan = require('morgan')
+const path = require('path')
 const app = express()
 const cors = require('cors')
 
@@ -106,6 +107,10 @@ app.get('/info', (req, res) => {
     Phonebook has info for ${contacts} people </br>
     ${time}
   `)
+})
+
+app.get('*', (req, res) => {
+  res.sendFile(path.resolve(__dirname, 'dist', 'index.html'))
 })
 
 const PORT = process.env.PORT || 3001
