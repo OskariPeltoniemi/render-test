@@ -7,8 +7,7 @@ if (process.argv.length<3) {
 
 const password = process.argv[2]
 
-const url =
-  `mongodb+srv://oskup99:${password}@fullstack.8pdyl.mongodb.net/?retryWrites=true&w=majority&appName=fullstack`
+const url = process.env.MONGODB_URI
 
 mongoose.set('strictQuery', false)
 mongoose.connect(url)
